@@ -90,7 +90,7 @@ class JobControllerAPIClient(BaseAPIClient):
         kubernetes_uid=None,
         unpacked_img=False,
         voms_proxy=False,
-        htcondor_max_runtime=None
+        htcondor_max_runtime=None,
     ):
         """Submit a job to RJC API.
 
