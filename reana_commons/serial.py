@@ -62,6 +62,11 @@ serial_workflow_schema = {
                         "type": "boolean",
                         "default": "false",
                     },
+                    "htcondor_max_runtime": {
+                        "$id": "#/properties/steps/properties/htcondor_max_runtime",
+                        "type": "integer",
+                        "default": "None",
+                    },
                     "commands": {
                         "$id": "#/properties/steps/properties/commands",
                         "type": "array",

@@ -90,6 +90,7 @@ class JobControllerAPIClient(BaseAPIClient):
         kubernetes_uid=None,
         unpacked_img=False,
         voms_proxy=False,
+        htcondor_max_runtime=None
     ):
         """Submit a job to RJC API.
 
@@ -108,6 +109,7 @@ class JobControllerAPIClient(BaseAPIClient):
         :kubernetes_uid: Overwrites the default user id in the job container.
         :unpacked_img: Decides if unpacked iamges should be used.
         :return: Returns a dict with the ``job_id``.
+        :htcondor_max_runtime: maximum runtime of a HTCondor job, in seconds.
         """
         job_spec = {
             "docker_img": image,
@@ -134,6 +136,9 @@ class JobControllerAPIClient(BaseAPIClient):
 
         if unpacked_img:
             job_spec["unpacked_img"] = unpacked_img
+
+        if htcondor_max_runtime:
+            job_spec["htcondor_max_runtime"] = htcondor_max_runtime
 
         response, http_response = self._client.jobs.create_job(job=job_spec).result()
         if http_response.status_code == 400:

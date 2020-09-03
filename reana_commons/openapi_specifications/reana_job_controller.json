@@ -81,6 +81,10 @@
         "voms_proxy": {
           "type": "boolean"
         },
+        "htcondor_max_runtime": {
+          "format": "int32",
+          "type": "integer"
+        },
         "workflow_uuid": {
           "type": "string"
         },
